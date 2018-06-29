@@ -1,6 +1,6 @@
 module.exports = {
     dev: {
-        runMode: 'dev'
+        run_mode: 'dev'
         , port: 8003
         , hostname: 'localhost'
         , mysql: {
@@ -12,7 +12,7 @@ module.exports = {
         }
     },
     prod: {
-        runMode: 'prod'
+        run_mode: 'prod'
         , port: 8003
         , hostname: '172.26.74.127'
         , mysql: {

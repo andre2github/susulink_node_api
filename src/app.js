@@ -1,6 +1,6 @@
 var path = require('path'),
     express = require('express'),
-    env = require(path.resolve(__dirname, 'config', 'env'))[process.env.runMode],
+    env = require(path.resolve(__dirname, 'config', 'env'))[process.env.run_mode],
     app = express();
 
 app.use('/api/common_link', require(path.resolve(__dirname, 'routers', 'common_link')));

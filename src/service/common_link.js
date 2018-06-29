@@ -3,6 +3,6 @@ var path = require('path')
 
 module.exports = {
     selectAll: function () {
-        return db.query('SELECT * FROM t_common_link');
+        return db.query('SELECT * FROM t_common_link ORDER BY id DESC');
     }
 }
