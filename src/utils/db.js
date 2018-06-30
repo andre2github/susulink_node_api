@@ -1,6 +1,6 @@
 var path = require('path')
     , mysql = require('mysql')
-    , Promise = require(path.resolve(__dirname, 'promise'))
+    , Promise = require('motto_promise')
     , env = require(path.resolve(__dirname, '..', 'config', 'env'))[process.env.run_mode];
 
 var db = {

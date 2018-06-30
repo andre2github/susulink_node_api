@@ -1,5 +1,5 @@
 var path = require('path')
-    , Promise = require(path.resolve(__dirname, '..', 'utils', 'promise'))
+    , Promise = require('motto_promise')
     , db = require(path.resolve(__dirname, '..', 'utils', 'db'));
 
 module.exports = {
