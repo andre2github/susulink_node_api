@@ -9,9 +9,9 @@ var path = require('path')
 //     next();
 // });
 
-router.get('/list', function (req, res, next) {
-    service.selectAll().then(function (links) {
-        res.json({ code: 1, msg: 'success', data: { links: links } });
+router.get('/pageSelect.json', function (req, res, next) {
+    service.pageSelect(req.query).then(function (data) {
+        res.json({ code: 1, msg: 'success', data: data });
     }).catch(function (err) {
         res.json({ code: -1, msg: 'error', data: null });
     });
