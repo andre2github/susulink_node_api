@@ -33,8 +33,8 @@ var db = {
     }
     , query: function (sql, data) {
         var promise = new Promise();
-        db.getPool().query(sql, data, function (error, results, fields) {
-            if (error) promise.reject(error);
+        db.getPool().query(sql, data, function (err, results, fields) {
+            if (err) promise.reject(err);
             promise.resolve(results);
         });
         return promise;

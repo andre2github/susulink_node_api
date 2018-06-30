@@ -12,6 +12,8 @@ var path = require('path')
 router.get('/list', function (req, res, next) {
     service.selectAll().then(function (links) {
         res.json({ code: 1, msg: 'success', data: { links: links } });
+    }).catch(function (err) {
+        res.json({ code: -1, msg: 'error', data: null });
     });
 });
 
