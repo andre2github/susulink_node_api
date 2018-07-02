@@ -10,10 +10,16 @@ var path = require('path')
 //     next();
 // });
 
+router.post('/hasName.json', function (req, res, next) {
+    user_service.hasName(req.body).then(function (has) {
+        res.json({ code: 1, msg: 'success', has: has });
+    });
+});
+
 router.post('/reg.json', function (req, res, next) {
-    user_service.reg(req.body).then(function (id) {
-        if (id > 0) {
-            res.json({ code: 1, msg: 'success', id: id });
+    user_service.reg(req.body).then(function (user) {
+        if (user) {
+            res.json({ code: 1, msg: 'success', user: user });
         } else {
             res.json({ code: -1, msg: 'failure' });
         }
@@ -27,6 +33,12 @@ router.post('/checkLogin.json', function (req, res, next) {
         } else {
             res.json({ code: -1, msg: 'failure' });
         }
+    });
+});
+
+router.post('/selectById', function (req, res, next) {
+    user_service.selectById(req.body).then(function (user) {
+        res.json({ code: 1, msg: 'success', user: user });
     });
 });
 
