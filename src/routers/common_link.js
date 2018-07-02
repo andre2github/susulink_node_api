@@ -12,9 +12,7 @@ var path = require('path')
 
 router.get('/pageSelect.json', function (req, res, next) {
     service.pageSelect(req.query).then(function (data) {
-        res.json({ code: 1, msg: 'success', data: data });
-    }).catch(function (err) {
-        res.json({ code: -1, msg: 'error', data: { error: err } });
+        res.json(Object.assign({ code: 1, msg: 'success' }, data));
     });
 });
 

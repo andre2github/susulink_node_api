@@ -11,10 +11,10 @@ var path = require('path')
 // app.use(bodyParser());
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 
 app.get('/', function (req, res, next) {
     fs.readFile(path.resolve(__dirname, '..', 'README.md'), 'utf-8', function (err, data) {
@@ -28,7 +28,8 @@ app.get('/', function (req, res, next) {
 });
 
 app.use('/api/common_link', require(path.resolve(__dirname, 'routers', 'common_link')));
+app.use('/api/user', require(path.resolve(__dirname, 'routers', 'user')));
 
 app.listen(env.port, env.hostname, function () {
-    console.info('susulink-node-api start at http://%s:%s', env.hostname, env.port);
+    console.info('susulink node api start at http://%s:%s', env.hostname, env.port);
 });
