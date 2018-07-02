@@ -28,6 +28,7 @@ app.get('/', function (req, res, next) {
 });
 
 app.use('/api/common_link', require(path.resolve(__dirname, 'routers', 'common_link')));
+app.use('/api/user_link', require(path.resolve(__dirname, 'routers', 'user_link')));
 app.use('/api/user', require(path.resolve(__dirname, 'routers', 'user')));
 
 app.listen(env.port, env.hostname, function () {

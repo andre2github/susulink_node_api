@@ -1,7 +1,7 @@
 var path = require('path')
     , express = require('express')
     , router = express.Router()
-    , service = require(path.resolve(__dirname, '..', 'service', 'common_link'))
+    , common_link_service = require(path.resolve(__dirname, '..', 'service', 'common_link'))
     ;
 
 // 该路由器使用的 时间日志 中间件
@@ -11,7 +11,7 @@ var path = require('path')
 // });
 
 router.get('/pageSelect.json', function (req, res, next) {
-    service.pageSelect(req.query).then(function (data) {
+    common_link_service.pageSelect(req.query).then(function (data) {
         res.json(Object.assign({ code: 1, msg: 'success' }, data));
     });
 });
