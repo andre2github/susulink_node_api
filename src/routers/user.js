@@ -10,13 +10,22 @@ var path = require('path')
 //     next();
 // });
 
-router.post('/hasName.json', function (req, res, next) {
+/**
+ * 判断是否存在该name
+ * @param name <String>
+ */
+router.post('/api/user/hasName.json', function (req, res, next) {
     user_service.hasName(req.body).then(function (has) {
         res.json({ code: 1, msg: 'success', has: has });
     });
 });
 
-router.post('/reg.json', function (req, res, next) {
+/**
+ * 注册
+ * @param name 用户名 <String>
+ * @param password 密码 <String>
+ */
+router.post('/api/user/reg.json', function (req, res, next) {
     user_service.reg(req.body).then(function (user) {
         if (user) {
             res.json({ code: 1, msg: 'success', user: user });
@@ -26,7 +35,12 @@ router.post('/reg.json', function (req, res, next) {
     });
 });
 
-router.post('/checkLogin.json', function (req, res, next) {
+/**
+ * 检查登入
+ * @param name 用户名 <String>
+ * @param password 密码 <String>
+ */
+router.post('/api/user/checkLogin.json', function (req, res, next) {
     user_service.checkLogin(req.body).then(function (user) {
         if (user) {
             res.json({ code: 1, msg: 'success', user: user });
@@ -36,7 +50,11 @@ router.post('/checkLogin.json', function (req, res, next) {
     });
 });
 
-router.post('/selectById', function (req, res, next) {
+/**
+ * 根据id查询
+ * @param id <Number>
+ */
+router.post('/api/user/selectById.json', function (req, res, next) {
     user_service.selectById(req.body).then(function (user) {
         res.json({ code: 1, msg: 'success', user: user });
     });
